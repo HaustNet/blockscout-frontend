@@ -1,4 +1,4 @@
-import { Tr, Td, Flex, Box, Tooltip, Skeleton, useColorModeValue } from '@chakra-ui/react';
+import { Tr, Td, Flex, Box, Tooltip, Skeleton } from '@chakra-ui/react';
 import BigNumber from 'bignumber.js';
 import { motion } from 'framer-motion';
 import React from 'react';
@@ -32,9 +32,6 @@ const BlocksTableItem = ({ data, isLoading, enableTimeIncrement }: Props) => {
   const burntFees = BigNumber(data.burnt_fees || 0);
   const txFees = BigNumber(data.tx_fees || 0);
 
-  const separatorColor = useColorModeValue('gray.200', 'gray.700');
-  const burntFeesIconColor = useColorModeValue('gray.500', 'inherit');
-
   return (
     <Tr
       as={ motion.tr }
@@ -61,7 +58,19 @@ const BlocksTableItem = ({ data, isLoading, enableTimeIncrement }: Props) => {
         <BlockTimestamp ts={ data.timestamp } isEnabled={ enableTimeIncrement } isLoading={ isLoading }/>
       </Td>
       <Td fontSize="sm">
-        <Skeleton isLoaded={ !isLoading } display="inline-block">
+        <Skeleton
+          isLoaded={ !isLoading }
+          display="inline-block"
+          color="bronze.900"
+          bg="bronzeAlpha.100"
+          borderRadius="sm"
+          px="2"
+          py="0.5"
+          _dark={{
+            color: 'unset',
+            bg: 'unset',
+          }}
+        >
           { data.size.toLocaleString() }
         </Skeleton>
       </Td>
@@ -101,7 +110,7 @@ const BlocksTableItem = ({ data, isLoading, enableTimeIncrement }: Props) => {
             </Tooltip>
             { data.gas_target_percentage && (
               <>
-                <TextSeparator color={ separatorColor } mx={ 1 }/>
+                <TextSeparator color="gray.200" mx={ 1 } _dark={{ color: 'gray.700' }}/>
                 <GasUsedToTargetRatio value={ data.gas_target_percentage } isLoading={ isLoading }/>
               </>
             ) }
@@ -116,7 +125,7 @@ const BlocksTableItem = ({ data, isLoading, enableTimeIncrement }: Props) => {
       { !isRollup && !config.UI.views.block.hiddenFields?.burnt_fees && (
         <Td fontSize="sm">
           <Flex alignItems="center" columnGap={ 2 }>
-            <IconSvg name="flame" boxSize={ 5 } color={ burntFeesIconColor } isLoading={ isLoading }/>
+            <IconSvg name="flame" boxSize={ 5 } color="gray.500" _dark={{ color: 'inherit' }} isLoading={ isLoading }/>
             <Skeleton isLoaded={ !isLoading } display="inline-block">
               { burntFees.dividedBy(WEI).toFixed(8) }
             </Skeleton>

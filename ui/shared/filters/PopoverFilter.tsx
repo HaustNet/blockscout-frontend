@@ -5,6 +5,7 @@ import {
   PopoverContent,
   PopoverBody,
   useDisclosure,
+  useColorModeValue,
 } from '@chakra-ui/react';
 import React from 'react';
 
@@ -32,7 +33,17 @@ const PopoverFilter = ({ appliedFiltersNum, children, contentProps, isActive, is
         />
       </PopoverTrigger>
       <PopoverContent { ...contentProps }>
-        <PopoverBody px={ 4 } py={ 6 } display="flex" flexDir="column" rowGap={ 5 }>
+        <PopoverBody
+          px={ 4 }
+          py={ 6 }
+          display="flex"
+          flexDir="column"
+          rowGap={ 5 }
+          border="1px solid"
+          borderColor="divider_dark"
+          borderRadius="lg"
+          bg={ useColorModeValue('lime.100', null) }
+        >
           { children }
         </PopoverBody>
       </PopoverContent>

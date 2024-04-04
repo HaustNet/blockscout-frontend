@@ -31,14 +31,14 @@ class MyDocument extends Document {
       <Html lang="en">
         <Head>
           { /* FONTS */ }
-          <link
+          { /* <link
             href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
             rel="stylesheet"
           />
           <link
             href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
             rel="stylesheet"
-          />
+          /> */ }
 
           { /* eslint-disable-next-line @next/next/no-sync-scripts */ }
           <script src="/envs.js"/>

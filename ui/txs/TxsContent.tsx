@@ -1,4 +1,4 @@
-import { Show, Hide } from '@chakra-ui/react';
+import { Show, Hide, useColorModeValue } from '@chakra-ui/react';
 import React from 'react';
 
 import type { AddressFromToFilter } from 'types/api/address';
@@ -57,6 +57,8 @@ const TxsContent = ({
 }: Props) => {
   const isMobile = useIsMobile();
 
+  const bgColor = useColorModeValue('lime.50', '');
+
   const onSortToggle = React.useCallback((field: TransactionsSortingField) => () => {
     const value = getNextSortValue<TransactionsSortingField, TransactionsSortingValue>(SORT_SEQUENCE, field)(sort);
     setSorting(value);
@@ -97,6 +99,7 @@ const TxsContent = ({
   const actionBar = isMobile ? (
     <TxsHeaderMobile
       mt={ -6 }
+      bg={ bgColor }
       sorting={ sort }
       setSorting={ setSorting }
       paginationProps={ query.pagination }

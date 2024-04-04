@@ -278,7 +278,15 @@ module.exports = {
     'react/no-redundant-should-component-update': 'error',
     'react/no-render-return-value': 'error',
     'react/no-string-refs': 'off',
-    'react/no-unknown-property': 'error',
+    'react/no-unknown-property': [
+      2,
+      {
+        ignore: [
+          'jsx',
+          'global',
+        ],
+      },
+    ],
     'react/no-unused-state': 'error',
     'react/require-optimization': [ 'error' ],
     'react/void-dom-elements-no-children': 'error',

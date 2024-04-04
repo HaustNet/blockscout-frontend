@@ -16,6 +16,7 @@ const NetworkMenuLink = ({ title, icon, isActive, isMobile, url, invertIconInDar
   const colors = useColors();
   const darkModeFilter = { filter: 'brightness(0) invert(1)' };
   const style = useColorModeValue({}, invertIconInDarkMode ? darkModeFilter : {});
+  const color = useColorModeValue('bronze.900', 'inherit');
 
   const iconEl = icon ? (
     <Image w="30px" h="30px" src={ icon } alt={ `${ title } network icon` } style={ style }/>
@@ -44,9 +45,9 @@ const NetworkMenuLink = ({ title, icon, isActive, isMobile, url, invertIconInDar
       >
         { iconEl }
         <Text
+          color={ color }
           marginLeft={ 3 }
           fontWeight="500"
-          color="inherit"
           fontSize={ isMobile ? 'sm' : 'md' }
           lineHeight={ isMobile ? '20px' : '24px' }
         >
@@ -54,6 +55,7 @@ const NetworkMenuLink = ({ title, icon, isActive, isMobile, url, invertIconInDar
         </Text>
         { isActive && (
           <IconSvg
+            color={ color }
             name="check"
             boxSize="24px"
             marginLeft="auto"

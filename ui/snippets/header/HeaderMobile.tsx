@@ -21,7 +21,7 @@ type Props = {
 }
 
 const HeaderMobile = ({ isHomePage, renderSearchBar }: Props) => {
-  const bgColor = useColorModeValue('white', 'black');
+  const bgColor = useColorModeValue('lime.50', 'black');
   const scrollDirection = useScrollDirection();
   const { ref, inView } = useInView({ threshold: 1 });
 

@@ -1,4 +1,4 @@
-import { Link, Text, HStack, Tooltip, Box, useBreakpointValue, chakra, shouldForwardProp } from '@chakra-ui/react';
+import { Link, Text, HStack, Tooltip, Box, useBreakpointValue, chakra, shouldForwardProp, useColorModeValue } from '@chakra-ui/react';
 import NextLink from 'next/link';
 import React from 'react';
 
@@ -26,6 +26,8 @@ const NavLink = ({ item, isCollapsed, px, className, onClick }: Props) => {
   const isMobile = useIsMobile();
   const colors = useColors();
 
+  const color = useColorModeValue('bronze.900', 'inherit');
+
   const isExpanded = isCollapsed === false;
   const isInternalLink = isInternalItem(item);
 
@@ -40,6 +42,8 @@ const NavLink = ({ item, isCollapsed, px, className, onClick }: Props) => {
       { ...styleProps.itemProps }
       w={{ base: '100%', lg: isExpanded ? '100%' : '60px', xl: isCollapsed ? '60px' : '100%' }}
       display="flex"
+      color={ color }
+      fontWeight={ 500 }
       px={ px || { base: 3, lg: isExpanded ? 3 : '15px', xl: isCollapsed ? '15px' : 3 } }
       aria-label={ `${ item.text } link` }
       whiteSpace="nowrap"

@@ -1,7 +1,11 @@
 const semanticTokens = {
   colors: {
+    divider_dark: {
+      'default': 'bronze.900',
+      _dark: 'whiteAlpha.200',
+    },
     divider: {
-      'default': 'blackAlpha.200',
+      'default': 'bronzeAlpha.100',
       _dark: 'whiteAlpha.200',
     },
     text: {
@@ -13,11 +17,12 @@ const semanticTokens = {
       _dark: 'gray.400',
     },
     link: {
-      'default': 'blue.600',
+      'default': 'bronze.900',
       _dark: 'blue.300',
     },
     link_hovered: {
-      'default': 'blue.400',
+      'default': 'bronze.900',
+      _dark: 'blue.400',
     },
     error: {
       'default': 'red.400',

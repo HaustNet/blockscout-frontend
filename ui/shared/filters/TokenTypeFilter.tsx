@@ -43,7 +43,20 @@ const TokenTypeFilter = <T extends TokenType | NFTTokenType>({ nftOnly, onChange
       </Flex>
       <CheckboxGroup size="lg" onChange={ handleChange } value={ value }>
         { (nftOnly ? NFT_TOKEN_TYPES : TOKEN_TYPES).map(({ title, id }) => (
-          <Checkbox key={ id } value={ id }>
+          <Checkbox
+            key={ id }
+            value={ id }
+            sx={{
+              '.chakra-checkbox__control': {
+                bg: 'bornze.900',
+                borderColor: 'bronze.900',
+                _dark: {
+                  bg: 'unset',
+                  borderColor: 'unset',
+                },
+              },
+            }}
+          >
             <Text fontSize="md">{ title }</Text>
           </Checkbox>
         )) }

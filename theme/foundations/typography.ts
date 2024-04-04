@@ -1,12 +1,10 @@
-import { theme } from '@chakra-ui/react';
-
-export const BODY_TYPEFACE = 'Inter';
-export const HEADING_TYPEFACE = 'Poppins';
+export const BODY_TYPEFACE = 'var(--font-clash-display), Arial, sans-serif';
+export const HEADING_TYPEFACE = 'var(--font-clash-display), Arial, sans-serif';
 
 const typography = {
   fonts: {
-    heading: `${ HEADING_TYPEFACE }, ${ theme.fonts.heading }`,
-    body: `${ BODY_TYPEFACE }, ${ theme.fonts.body }`,
+    heading: HEADING_TYPEFACE,
+    body: BODY_TYPEFACE,
   },
   textStyles: {
     h2: {

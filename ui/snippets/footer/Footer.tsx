@@ -118,18 +118,18 @@ const Footer = () => {
   const renderProjectInfo = React.useCallback((gridArea?: GridProps['gridArea']) => {
     return (
       <Box gridArea={ gridArea }>
-        <Link fontSize="xs" href="https://www.blockscout.com">blockscout.com</Link>
-        <Text mt={ 3 } fontSize="xs">
-          Blockscout is a tool for inspecting and analyzing EVM based blockchains. Blockchain explorer for Ethereum Networks.
+        <Link fontSize="xs" href="humanity-protocol.com">humanity-protocol.com</Link>
+        <Text color="text" mt={ 3 } fontSize="xs">
+          Humanity Protocol Explorer is a tool for inspecting and analyzing EVM based blockchains. Humanity Protocol Explorer for Ethereum Networks.
         </Text>
         <VStack spacing={ 1 } mt={ 6 } alignItems="start">
           { apiVersionUrl && (
-            <Text fontSize="xs">
+            <Text fontSize="xs" color="text">
               Backend: <Link href={ apiVersionUrl } target="_blank">{ backendVersionData?.backend_version }</Link>
             </Text>
           ) }
           { frontendLink && (
-            <Text fontSize="xs">
+            <Text fontSize="xs" color="text">
               Frontend: { frontendLink }
             </Text>
           ) }
@@ -199,7 +199,6 @@ const Footer = () => {
 
       { renderNetworkInfo({ lg: 'network' }) }
       { renderProjectInfo({ lg: 'info' }) }
-
       <Grid
         gridArea={{ lg: 'links-bottom' }}
         gap={ 1 }

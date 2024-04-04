@@ -5,6 +5,7 @@ import {
   PopoverContent,
   PopoverBody,
   useColorMode,
+  useColorModeValue,
   useDisclosure,
   Skeleton,
 } from '@chakra-ui/react';
@@ -19,7 +20,6 @@ import { COLOR_THEMES } from './utils';
 const ColorModeSwitch = () => {
   const { isOpen, onToggle, onClose } = useDisclosure();
   const { setColorMode, colorMode } = useColorMode();
-
   const [ activeHex, setActiveHex ] = React.useState<string>();
 
   const setTheme = React.useCallback((hex: string) => {
@@ -72,11 +72,17 @@ const ColorModeSwitch = () => {
 
   const activeTheme = COLOR_THEMES.find((theme) => theme.colors.some((color) => color.hex === activeHex));
 
+  const color = useColorModeValue('bronze.900', 'inherit');
+  const bgColor = useColorModeValue('lime.50', 'black');
+  const border = useColorModeValue('1px solid', 'none');
+  const borderColor = useColorModeValue('bronze.900', 'none');
+
   return (
     <Popover placement="bottom-start" isLazy trigger="click" isOpen={ isOpen } onClose={ onClose }>
       <PopoverTrigger>
         { activeTheme ? (
           <IconButton
+            color={ color }
             variant="simple"
             colorScheme="blue"
             aria-label="color mode switch"
@@ -86,7 +92,7 @@ const ColorModeSwitch = () => {
           />
         ) : <Skeleton boxSize={ 5 } borderRadius="sm"/> }
       </PopoverTrigger>
-      <PopoverContent overflowY="hidden" w="164px" fontSize="sm">
+      <PopoverContent overflowY="hidden" w="164px" fontSize="sm" bg={ bgColor } border={ border } borderColor={ borderColor }>
         <PopoverBody boxShadow="2xl" p={ 3 }>
           { COLOR_THEMES.map((theme) => <ColorModeSwitchTheme key={ theme.name } { ...theme } onClick={ handleSelect } activeHex={ activeHex }/>) }
         </PopoverBody>

@@ -1,4 +1,4 @@
-import { PopoverContent, PopoverBody, Text, Tabs, TabList, TabPanels, TabPanel, Tab, VStack, Skeleton, Flex, useColorModeValue } from '@chakra-ui/react';
+import { PopoverContent, PopoverBody, Text, Tabs, TabList, TabPanels, TabPanel, Tab, VStack, Skeleton, Flex } from '@chakra-ui/react';
 import React from 'react';
 
 import type { FeaturedNetwork, NetworkGroup } from 'types/networks';
@@ -13,13 +13,12 @@ interface Props {
 const NetworkMenuPopup = ({ items, tabs }: Props) => {
   const selectedNetwork = items?.find(({ isActive }) => isActive);
   const selectedTab = tabs.findIndex((tab) => selectedNetwork?.group === tab);
-  const bgColor = useColorModeValue('blackAlpha.50', 'whiteAlpha.50');
 
   const content = !items || items.length === 0 ? (
     <>
       <Skeleton h="30px" w="120px"/>
       <Flex mt={ 4 } alignItems="center">
-        <Flex h="40px" w="105px" bgColor={ bgColor } borderRadius="base" px={ 4 } py={ 2 }>
+        <Flex h="40px" w="105px" bgColor="blackAlpha.50" borderRadius="base" px={ 4 } py={ 2 } _dark={{ bgColor: 'whiteAlpha.50' }}>
           <Skeleton h="24px" w="100%"/>
         </Flex>
         <Skeleton h="24px" w="68px" mx={ 4 }/>
@@ -46,7 +45,27 @@ const NetworkMenuPopup = ({ items, tabs }: Props) => {
       <Tabs variant="soft-rounded" mt={ 4 } isLazy defaultIndex={ selectedTab !== -1 ? selectedTab : undefined }>
         { tabs.length > 1 && (
           <TabList>
-            { tabs.map((tab) => <Tab key={ tab } textTransform="capitalize">{ tab }</Tab>) }
+            { tabs.map((tab) => (
+              <Tab
+                color="bronze.900"
+                key={ tab }
+                textTransform="capitalize"
+                _selected={{
+                  bg: 'lime.700',
+                  border: '1px solid',
+                  borderColor: 'bronze.900',
+                  _dark: {
+                    bg: 'unset',
+                    boderColor: 'unset',
+                  },
+                }}
+                _dark={{
+                  color: 'none',
+                }}
+              >
+                { tab }
+              </Tab>
+            )) }
           </TabList>
         ) }
         <TabPanels mt={ 8 }>
@@ -70,7 +89,17 @@ const NetworkMenuPopup = ({ items, tabs }: Props) => {
   );
 
   return (
-    <PopoverContent w="382px">
+    <PopoverContent
+      w="382px"
+      bg="lime.100"
+      border="1px solid"
+      borderColor="bornze.900"
+      _dark={{
+        bg: 'black',
+        border: 'none',
+        borderColor: 'none',
+      }}
+    >
       <PopoverBody>
         { content }
       </PopoverBody>

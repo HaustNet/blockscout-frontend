@@ -27,7 +27,7 @@ const TransactionsHome = () => {
 
   return (
     <>
-      <Heading as="h4" size="sm" mb={ 4 }>Latest transactions</Heading>
+      <Heading as="h4" size="sm" mb={ 4 } color="bronze.900" fontWeight={ 700 } fontSize="2xl" _dark={{ color: 'white' }}>Latest transactions</Heading>
       <LatestTxs/>
     </>
   );

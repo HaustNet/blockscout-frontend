@@ -1,4 +1,4 @@
-import { Table, Tbody, Tr, Th } from '@chakra-ui/react';
+import { Table, Tbody, Tr, Th, useColorModeValue, Box } from '@chakra-ui/react';
 import type BigNumber from 'bignumber.js';
 import React from 'react';
 
@@ -21,30 +21,32 @@ interface Props {
 const AddressesTable = ({ items, totalSupply, pageStartIndex, top, isLoading }: Props) => {
   const hasPercentage = !totalSupply.eq(ZERO);
   return (
-    <Table variant="simple" size="sm">
-      <Thead top={ top }>
-        <Tr>
-          <Th width="64px">Rank</Th>
-          <Th width={ hasPercentage ? '30%' : '40%' }>Address</Th>
-          <Th width="20%" pl={ 10 }>Public tag</Th>
-          <Th width={ hasPercentage ? '20%' : '25%' } isNumeric>{ `Balance ${ currencyUnits.ether }` }</Th>
-          { hasPercentage && <Th width="15%" isNumeric>Percentage</Th> }
-          <Th width="15%" isNumeric>Txn count</Th>
-        </Tr>
-      </Thead>
-      <Tbody>
-        { items.map((item, index) => (
-          <AddressesTableItem
-            key={ item.hash + (isLoading ? index : '') }
-            item={ item }
-            totalSupply={ totalSupply }
-            index={ pageStartIndex + index }
-            hasPercentage={ hasPercentage }
-            isLoading={ isLoading }
-          />
-        )) }
-      </Tbody>
-    </Table>
+    <Box border="1px solid" borderColor={ useColorModeValue('divider_dark', 'transparent') } borderRadius="lg">
+      <Table variant="simple" size="sm">
+        <Thead top={ top }>
+          <Tr>
+            <Th width="64px">Rank</Th>
+            <Th width={ hasPercentage ? '30%' : '40%' }>Address</Th>
+            <Th width="20%" pl={ 10 }>Public tag</Th>
+            <Th width={ hasPercentage ? '20%' : '25%' } isNumeric>{ `Balance ${ currencyUnits.ether }` }</Th>
+            { hasPercentage && <Th width="15%" isNumeric>Percentage</Th> }
+            <Th width="15%" isNumeric>Txn count</Th>
+          </Tr>
+        </Thead>
+        <Tbody>
+          { items.map((item, index) => (
+            <AddressesTableItem
+              key={ item.hash + (isLoading ? index : '') }
+              item={ item }
+              totalSupply={ totalSupply }
+              index={ pageStartIndex + index }
+              hasPercentage={ hasPercentage }
+              isLoading={ isLoading }
+            />
+          )) }
+        </Tbody>
+      </Table>
+    </Box>
   );
 };
 

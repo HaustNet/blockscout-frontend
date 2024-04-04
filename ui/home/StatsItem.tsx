@@ -27,7 +27,8 @@ const StatsItem = ({ icon, title, value, className, tooltip, url, isLoading }: P
     [`@media screen and (min-width: ${ breakpoints.lg }) and (max-width: ${ LARGEST_BREAKPOINT })`]: { alignItems: 'center' },
   };
 
-  const bgColor = useColorModeValue('blue.50', 'blue.800');
+  const bgColor = useColorModeValue('transparent', 'blue.800');
+  const textColor = useColorModeValue('bronze.900', 'text_secondary');
   const loadingBgColor = useColorModeValue('blackAlpha.50', 'whiteAlpha.50');
 
   return (
@@ -41,7 +42,7 @@ const StatsItem = ({ icon, title, value, className, tooltip, url, isLoading }: P
       columnGap={ 3 }
       rowGap={ 2 }
       className={ className }
-      color={ useColorModeValue('black', 'white') }
+      color={ useColorModeValue('bronze.900', 'white') }
       position="relative"
       { ...(url && !isLoading ? {
         as: 'a',
@@ -54,10 +55,10 @@ const StatsItem = ({ icon, title, value, className, tooltip, url, isLoading }: P
         alignItems="start"
         sx={ sxText }
       >
-        <Skeleton isLoaded={ !isLoading } color="text_secondary" fontSize="xs" lineHeight="16px" borderRadius="base">
+        <Skeleton isLoaded={ !isLoading } color={ textColor } fontWeight={ 700 } fontSize="xs" lineHeight="16px" borderRadius="base">
           <span>{ title }</span>
         </Skeleton>
-        <Skeleton isLoaded={ !isLoading } fontWeight={ 500 } fontSize="md" color={ useColorModeValue('black', 'white') } borderRadius="base">
+        <Skeleton isLoaded={ !isLoading } fontWeight={ 700 } fontSize="2xl" color={ useColorModeValue('black', 'white') } borderRadius="base">
           { typeof value === 'string' ? <span>{ value }</span> : value }
         </Skeleton>
       </Flex>

@@ -38,10 +38,11 @@ const ChainIndicators = () => {
     },
   });
 
-  const bgColorDesktop = useColorModeValue('white', 'gray.900');
-  const bgColorMobile = useColorModeValue('white', 'black');
-  const listBgColorDesktop = useColorModeValue('gray.50', 'black');
-  const listBgColorMobile = useColorModeValue('gray.50', 'gray.900');
+  const bgColorDesktop = useColorModeValue('transparent', 'gray.900');
+  const bgColorMobile = useColorModeValue('transparent', 'black');
+  const listBgColorDesktop = useColorModeValue('transparent', 'black');
+  const listBgColorMobile = useColorModeValue('transparent', 'gray.900');
+  const valueColor = useColorModeValue('black', 'white');
 
   if (indicators.length === 0) {
     return null;
@@ -53,11 +54,11 @@ const ChainIndicators = () => {
     }
 
     if (!statsQueryResult.data) {
-      return <Text mt={ 3 } mb={ 4 }>There is no data</Text>;
+      return <Text fontWeight={ 700 } mt={ 3 } mb={ 4 }>There is no data</Text>;
     }
 
     return (
-      <Text fontWeight={ 600 } fontFamily="heading" fontSize="48px" lineHeight="48px" mt={ 3 }>
+      <Text color={ valueColor } fontWeight={ 700 } fontFamily="heading" fontSize="48px" lineHeight="48px" mt={ 3 }>
         { indicator?.value(statsQueryResult.data) }
       </Text>
     );
@@ -87,8 +88,9 @@ const ChainIndicators = () => {
     <Flex
       p={{ base: 0, lg: 8 }}
       borderRadius={{ base: 'none', lg: 'lg' }}
-      boxShadow={{ base: 'none', lg: 'xl' }}
       bgColor={{ base: bgColorMobile, lg: bgColorDesktop }}
+      border="1px solid"
+      borderColor="divider_dark"
       columnGap={ 6 }
       rowGap={ 0 }
       flexDir={{ base: 'column', lg: 'row' }}
@@ -98,7 +100,7 @@ const ChainIndicators = () => {
     >
       <Flex flexGrow={ 1 } flexDir="column" order={{ base: 2, lg: 1 }} p={{ base: 6, lg: 0 }}>
         <Flex alignItems="center">
-          <Text fontWeight={ 500 } fontFamily="heading" fontSize="lg">{ indicator?.title }</Text>
+          <Text fontWeight={ 700 } fontFamily="heading" fontSize="2xl">{ indicator?.title }</Text>
           { indicator?.hint && <Hint label={ indicator.hint } ml={ 1 }/> }
         </Flex>
         <Box mb={ 4 }>
@@ -114,6 +116,8 @@ const ChainIndicators = () => {
           as="ul"
           p={ 3 }
           borderRadius="lg"
+          border="1px solid"
+          borderColor="divider_dark"
           bgColor={{ base: listBgColorMobile, lg: listBgColorDesktop }}
           rowGap={ 3 }
           order={{ base: 1, lg: 2 }}

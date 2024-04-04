@@ -12,7 +12,7 @@ const $bg = cssVar('menu-bg');
 const $shadow = cssVar('menu-shadow');
 
 const baseStyleList = defineStyle({
-  [$bg.variable]: '#fff',
+  [$bg.variable]: '#D9EAD7',
   [$shadow.variable]: 'shadows.2xl',
   _dark: {
     [$bg.variable]: 'colors.gray.900',

@@ -5,12 +5,12 @@ import IconSvg from 'ui/shared/IconSvg';
 
 type Props = {
   onClick: () => void;
-  isActive: boolean;
+  isActive?: boolean;
   className?: string;
   isLoading?: boolean;
 }
 
-const SortButton = ({ onClick, isActive, className, isLoading }: Props) => {
+const SortButton = ({ onClick, className, isLoading }: Props) => {
   if (isLoading) {
     return <Skeleton className={ className } w="36px" h="32px" borderRadius="base"/>;
   }
@@ -21,12 +21,19 @@ const SortButton = ({ onClick, isActive, className, isLoading }: Props) => {
       aria-label="sort"
       size="sm"
       variant="outline"
-      colorScheme="gray-dark"
       minWidth="36px"
       onClick={ onClick }
-      isActive={ isActive }
+      // isActive={ isActive }
       display="flex"
       className={ className }
+      bg="transparent"
+      borderColor="bronze.900"
+      color="bronze.900"
+      _dark={{
+        bg: 'unset',
+        borderColor: 'unset',
+        color: 'unset',
+      }}
     />
   );
 };

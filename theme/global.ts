@@ -7,13 +7,13 @@ import getDefaultTransitionProps from './utils/getDefaultTransitionProps';
 
 const global = (props: StyleFunctionProps) => ({
   body: {
-    bg: mode('white', 'black')(props),
+    bg: mode('#D9EAD7', 'black')(props),
     ...getDefaultTransitionProps(),
     '-webkit-tap-highlight-color': 'transparent',
     'font-variant-ligatures': 'no-contextual',
   },
   mark: {
-    bgColor: mode('green.100', 'green.800')(props),
+    bgColor: mode('lime.100', 'green.800')(props),
     color: 'inherit',
   },
   'svg *::selection': {
