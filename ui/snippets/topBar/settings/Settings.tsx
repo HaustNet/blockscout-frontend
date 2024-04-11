@@ -14,15 +14,23 @@ const Settings = () => {
       <PopoverTrigger>
         <IconButton
           variant="simple"
-          colorScheme="blue"
+          color="bronze.900"
           aria-label="User settings"
           icon={ <IconSvg name="gear_slim" boxSize={ 5 }/> }
           p="1px"
           boxSize={ 5 }
           onClick={ onToggle }
+          _dark={{ color: 'white' }}
         />
       </PopoverTrigger>
-      <PopoverContent overflowY="hidden" w="auto" fontSize="sm">
+      <PopoverContent
+        overflowY="hidden" w="auto"
+        fontSize="sm"
+        border="1px solid"
+        borderColor="bronze.900"
+        bg="lime.50"
+        _dark={{ border: 'unset', bg: 'gray.800' }}
+      >
         <PopoverBody boxShadow="2xl" p={ 4 }>
           <SettingsColorTheme/>
           <Box borderColor="divider" borderWidth="1px" my={ 3 }/>

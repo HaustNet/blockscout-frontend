@@ -32,7 +32,7 @@ const SettingsIdentIcon = () => {
 
   return (
     <div>
-      <Box fontWeight={ 600 }>Address identicon</Box>
+      <Box fontWeight={ 600 } color="bronze.900" _dark={{ color: 'unset' }}>Address identicon</Box>
       <Box color="text_secondary" mt={ 1 } mb={ 2 }>{ activeIdenticon?.label }</Box>
       <Flex>
         { IDENTICONS.map((identicon) => (
