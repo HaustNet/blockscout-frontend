@@ -18,7 +18,19 @@ const FooterLinkItem = ({ icon, iconSize, text, url, isLoading }: Props) => {
   }
 
   return (
-    <Link href={ url } display="flex" alignItems="center" h="30px" variant="secondary" target="_blank" fontSize="xs">
+    <Link
+      href={ url }
+      display="flex"
+      alignItems="center"
+      h="30px"
+      variant="secondary"
+      target="_blank"
+      color="bronze.900"
+      fontSize="xs"
+      _dark={{
+        color: 'text',
+      }}
+    >
       { icon && (
         <Center minW={ 6 } mr={ 2 }>
           <IconSvg boxSize={ iconSize || 5 } name={ icon }/>

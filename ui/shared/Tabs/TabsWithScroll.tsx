@@ -88,7 +88,7 @@ const TabsWithScroll = ({
       ref={ tabsRef }
       lazyBehavior={ lazyBehavior }
     >
-      <AdaptiveTabsList
+      { <AdaptiveTabsList
         // the easiest and most readable way to achieve correct tab's cut recalculation when screen is resized
         // is to do full re-render of the tabs list
         // so we use screenWidth as a key for the TabsList component
@@ -101,11 +101,12 @@ const TabsWithScroll = ({
         activeTabIndex={ activeTabIndex }
         onItemClick={ handleTabChange }
         themeProps={ themeProps }
-      />
+      /> }
       <TabPanels>
-        { tabsList.map((tab) => <TabPanel padding={ 0 } key={ tab.id }>{ tab.component }</TabPanel>) }
-      </TabPanels>
-    </Tabs>
+        { tabsList.map((tab) => (
+          <TabPanel padding={ 0 } key={ tab.id } border="1px solid" borderColor="divider_dark" borderRadius="lg">{ tab.component }</TabPanel>
+        )) }
+      </TabPanels>    </Tabs>
   );
 };
 

@@ -29,6 +29,8 @@ const Pagination = ({ page, onNextPageClick, onPrevPageClick, resetPage, hasPage
           size="sm"
           onClick={ resetPage }
           isDisabled={ page === 1 || isLoading }
+          color="link"
+          borderColor="link"
         >
         First
         </Button>
@@ -40,6 +42,8 @@ const Pagination = ({ page, onNextPageClick, onPrevPageClick, resetPage, hasPage
           size="sm"
           aria-label="Prev page"
           w="36px"
+          color="link"
+          borderColor="link"
           icon={ <IconSvg name="arrows/east-mini" w={ 5 } h={ 5 }/> }
           isDisabled={ !canGoBackwards || isLoading }
         />
@@ -48,12 +52,18 @@ const Pagination = ({ page, onNextPageClick, onPrevPageClick, resetPage, hasPage
         <Button
           variant="outline"
           size="sm"
-          isActive
           borderWidth="1px"
           fontWeight={ 400 }
           h={ 8 }
           minW="36px"
           cursor="unset"
+          borderColor="link"
+          color="white"
+          bg="bronze.900"
+          _dark={{
+            color: 'link',
+            bg: 'transparent',
+          }}
         >
           { page }
         </Button>
@@ -67,6 +77,8 @@ const Pagination = ({ page, onNextPageClick, onPrevPageClick, resetPage, hasPage
           w="36px"
           icon={ <IconSvg name="arrows/east-mini" w={ 5 } h={ 5 } transform="rotate(180deg)"/> }
           isDisabled={ !hasNextPage || isLoading }
+          color="link"
+          borderColor="link"
         />
       </Skeleton>
       { /* not implemented yet */ }

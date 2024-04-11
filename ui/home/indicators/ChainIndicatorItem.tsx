@@ -23,8 +23,10 @@ interface Props {
 const ChainIndicatorItem = ({ id, title, value, valueDiff, icon, isSelected, onClick, stats }: Props) => {
   const isMobile = useIsMobile();
 
-  const activeBgColorDesktop = useColorModeValue('white', 'gray.900');
-  const activeBgColorMobile = useColorModeValue('white', 'black');
+  const activeBgColorDesktop = useColorModeValue('transparent', 'gray.900');
+  const activeBgColorMobile = useColorModeValue('transparent', 'black');
+  const activeBorder = useColorModeValue('1px solid', 'none');
+  const activeBorderColor = useColorModeValue('bronze.900', 'none');
   const activeBgColor = isMobile ? activeBgColorMobile : activeBgColorDesktop;
 
   const handleClick = React.useCallback(() => {
@@ -49,7 +51,7 @@ const ChainIndicatorItem = ({ id, title, value, valueDiff, icon, isSelected, onC
     }
 
     if (!stats.data) {
-      return <Text variant="secondary" fontWeight={ 400 }>no data</Text>;
+      return <Text variant="secondary" fontWeight={ 700 } fontSize="xl">no data</Text>;
     }
 
     return <Text variant="secondary" fontWeight={ 600 }>{ value(stats.data) }</Text>;
@@ -84,7 +86,9 @@ const ChainIndicatorItem = ({ id, title, value, valueDiff, icon, isSelected, onC
       cursor="pointer"
       onClick={ handleClick }
       bgColor={ isSelected ? activeBgColor : 'inherit' }
-      boxShadow={ isSelected ? 'lg' : 'none' }
+      boxShadow={ isSelected ? '0 4px 0 0 #BA5400;' : 'none' }
+      border={ isSelected ? activeBorder : 'none' }
+      borderColor={ isSelected ? activeBorderColor : 'none' }
       zIndex={ isSelected ? 1 : 'initial' }
       _hover={{
         activeBgColor,

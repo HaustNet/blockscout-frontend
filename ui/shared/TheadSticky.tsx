@@ -40,7 +40,7 @@ const TheadSticky = ({ top, children, ...restProps }: Props) => {
   };
 
   return (
-    <Thead { ...props } ref={ ref }>
+    <Thead { ...props } ref={ ref } bg={ useColorModeValue('lime.50', '') }>
       { children }
     </Thead>
   );

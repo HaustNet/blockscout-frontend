@@ -1,4 +1,4 @@
-import { Box, Heading, Flex } from '@chakra-ui/react';
+import { Box, Heading, Flex, useColorModeValue } from '@chakra-ui/react';
 import React from 'react';
 
 import config from 'configs/app';
@@ -15,6 +15,8 @@ import WalletMenuDesktop from 'ui/snippets/walletMenu/WalletMenuDesktop';
 const rollupFeature = config.features.rollup;
 
 const Home = () => {
+  const color = useColorModeValue(config.UI.homepage.plate.textColor, 'white');
+
   return (
     <Box as="main">
       <Box
@@ -31,9 +33,9 @@ const Home = () => {
             size={{ base: 'md', lg: 'xl' }}
             lineHeight={{ base: '32px', lg: '50px' }}
             fontWeight={ 600 }
-            color={ config.UI.homepage.plate.textColor }
+            color={ color }
           >
-            { config.chain.name } explorer
+            Welcome to { config.chain.name } explorer
           </Heading>
           <Box display={{ base: 'none', lg: 'flex' }}>
             { config.features.account.isEnabled && <ProfileMenuDesktop isHomePage/> }

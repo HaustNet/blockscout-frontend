@@ -1,4 +1,4 @@
-import { chakra } from '@chakra-ui/react';
+import { chakra, useColorModeValue } from '@chakra-ui/react';
 import _omit from 'lodash/omit';
 import React from 'react';
 
@@ -27,9 +27,12 @@ type IconProps = Omit<EntityBase.IconBaseProps, 'name'> & {
 };
 
 const Icon = (props: IconProps) => {
+  const color = useColorModeValue('bronze.900', 'white');
+
   return (
     <EntityBase.Icon
       { ...props }
+      color={ color }
       name={ props.name ?? 'block_slim' }
     />
   );
@@ -38,9 +41,12 @@ const Icon = (props: IconProps) => {
 type ContentProps = Omit<EntityBase.ContentBaseProps, 'text'> & Pick<EntityProps, 'number'>;
 
 const Content = chakra((props: ContentProps) => {
+  const color = useColorModeValue('bronze.900', 'unset');
+
   return (
     <EntityBase.Content
       { ...props }
+      color={ color }
       text={ String(props.number) }
       tailLength={ props.tailLength ?? 2 }
     />

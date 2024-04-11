@@ -14,7 +14,7 @@ interface Props {
 }
 
 const Burger = ({ isMarketplaceAppPage }: Props) => {
-  const iconColor = useColorModeValue('gray.600', 'white');
+  const iconColor = useColorModeValue('bronze.900', 'white');
   const { isOpen, onOpen, onClose } = useDisclosure();
   const networkMenu = useNetworkMenu();
 

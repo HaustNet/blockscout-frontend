@@ -3,6 +3,7 @@ import {
   Flex,
   Grid,
   Skeleton,
+  useColorModeValue,
 } from '@chakra-ui/react';
 import { motion } from 'framer-motion';
 import React from 'react';
@@ -23,6 +24,8 @@ type Props = {
 
 const LatestBlocksItem = ({ block, isLoading }: Props) => {
   const totalReward = getBlockTotalReward(block);
+  const color = useColorModeValue('bronze.900', 'initial');
+
   return (
     <Box
       as={ motion.div }
@@ -33,13 +36,14 @@ const LatestBlocksItem = ({ block, isLoading }: Props) => {
       transitionTimingFunction="linear"
       borderRadius="md"
       border="1px solid"
-      borderColor="divider"
+      borderColor="divider_dark"
       p={ 6 }
     >
       <Flex alignItems="center" overflow="hidden" w="100%" mb={ 3 }>
         <BlockEntity
           isLoading={ isLoading }
           number={ block.height }
+          color={ color }
           tailLength={ 2 }
           fontSize="xl"
           lineHeight={ 7 }
@@ -56,20 +60,21 @@ const LatestBlocksItem = ({ block, isLoading }: Props) => {
         />
       </Flex>
       <Grid gridGap={ 2 } templateColumns="auto minmax(0, 1fr)" fontSize="sm">
-        <Skeleton isLoaded={ !isLoading }>Txn</Skeleton>
-        <Skeleton isLoaded={ !isLoading } color="text_secondary"><span>{ block.tx_count }</span></Skeleton>
+        <Skeleton isLoaded={ !isLoading } fontWeight={ 500 } >Txn</Skeleton>
+        <Skeleton isLoaded={ !isLoading } fontWeight={ 500 } ><span>{ block.tx_count }</span></Skeleton>
 
         { !config.features.rollup.isEnabled && !config.UI.views.block.hiddenFields?.total_reward && (
           <>
-            <Skeleton isLoaded={ !isLoading }>Reward</Skeleton>
-            <Skeleton isLoaded={ !isLoading } color="text_secondary"><span>{ totalReward.dp(10).toFixed() }</span></Skeleton>
+            <Skeleton isLoaded={ !isLoading } fontWeight={ 500 } >Reward</Skeleton>
+            <Skeleton isLoaded={ !isLoading } fontWeight={ 500 } ><span>{ totalReward.dp(10).toFixed() }</span></Skeleton>
           </>
         ) }
 
         { !config.features.rollup.isEnabled && !config.UI.views.block.hiddenFields?.miner && (
           <>
-            <Skeleton isLoaded={ !isLoading } textTransform="capitalize">{ getNetworkValidatorTitle() }</Skeleton>
+            <Skeleton isLoaded={ !isLoading } textTransform="capitalize" fontWeight={ 500 } >{ getNetworkValidatorTitle() }</Skeleton>
             <AddressEntity
+              color={ color }
               address={ block.miner }
               isLoading={ isLoading }
               noIcon

@@ -32,8 +32,8 @@ const LatestTransactions = () => {
   if (data) {
     const txsUrl = route({ pathname: '/txs' });
     return (
-      <>
-        <SocketNewItemsNotice borderBottomRadius={ 0 } url={ txsUrl } num={ num } alert={ socketAlert } isLoading={ isPlaceholderData }/>
+      <Box border="1px solid" borderColor="divider_dark" borderRadius="lg">
+        <SocketNewItemsNotice borderRadius="lg" borderBottomRadius={ 0 } url={ txsUrl } num={ num } alert={ socketAlert } isLoading={ isPlaceholderData }/>
         <Box mb={ 3 } display={{ base: 'block', lg: 'none' }}>
           { data.slice(0, txsCount).map(((tx, index) => (
             <LatestTxsItemMobile
@@ -54,10 +54,10 @@ const LatestTransactions = () => {
             ))) }
           </Box>
         </AddressHighlightProvider>
-        <Flex justifyContent="center">
+        <Flex justifyContent="center" bg="bronzeAlpha.100" borderRadius="lg" borderTopRadius={ 0 } py="2">
           <LinkInternal fontSize="sm" href={ txsUrl }>View all transactions</LinkInternal>
         </Flex>
-      </>
+      </Box>
     );
   }
 

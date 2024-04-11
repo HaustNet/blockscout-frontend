@@ -16,28 +16,43 @@ export interface Props {
 
 const StatusTag = ({ type, text, errorText, isLoading }: Props) => {
   let icon: IconName;
-  let colorScheme;
+  let bg;
+  let color;
+  let _dark;
 
   switch (type) {
     case 'ok':
       icon = 'status/success';
-      colorScheme = 'green';
+      bg = 'lime.700';
+      color = 'bronze.900';
+      _dark = {
+        bg: 'gray.500',
+        color: 'lime.700',
+      };
       break;
     case 'error':
       icon = 'status/error';
-      colorScheme = 'red';
+      bg = 'red.100';
+      color = 'bronze.900';
+      _dark = {
+        bg: 'gray.500',
+        color: 'red.100',
+      };
       break;
     case 'pending':
       icon = 'status/pending';
-      // FIXME: it's not gray on mockups
-      // need to implement new color scheme or redefine colors here
-      colorScheme = 'gray';
+      bg = 'blue.400';
+      color = 'bronze.900';
+      _dark = {
+        bg: 'gray.500',
+        color: 'blue.400',
+      };
       break;
   }
 
   return (
     <Tooltip label={ errorText }>
-      <Tag colorScheme={ colorScheme } display="flex" isLoading={ isLoading } >
+      <Tag color={ color } bg={ bg } border="1px solid" borderColor="divider_dark" display="flex" _dark={ _dark }isLoading={ isLoading } >
         <IconSvg boxSize={ 2.5 } name={ icon } mr={ 2 } flexShrink={ 0 }/>
         <TagLabel display="block">{ text }</TagLabel>
       </Tag>

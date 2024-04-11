@@ -29,9 +29,9 @@ const NeverShowInfoPlugin = () => {
 };
 
 const SwaggerUI = () => {
-  const mainColor = useColorModeValue('blackAlpha.800', 'whiteAlpha.800');
-  const borderColor = useToken('colors', 'divider');
-  const mainBgColor = useColorModeValue('blackAlpha.100', 'whiteAlpha.200');
+  const mainColor = useColorModeValue('bronze.900', 'whiteAlpha.800');
+  const borderColor = useColorModeValue('divider_dark', 'divider');
+  const mainBgColor = useColorModeValue('lime.100', 'whiteAlpha.200');
 
   const swaggerStyle: SystemStyleObject = {
     '.swagger-ui .scheme-container, .opblock-tag': {
@@ -108,6 +108,67 @@ const SwaggerUI = () => {
     '.swagger-ui .model .property.primitive': {
       color: useToken('colors', 'text_secondary'),
       wordBreak: 'break-all',
+    },
+    // CUSTOM
+    '.swagger-ui .opblock.opblock-get': {
+      bg: useColorModeValue(mainBgColor, null),
+      borderRadius: 'lg',
+      borderColor: 'divider_dark',
+    },
+    '.swagger-ui .opblock.opblock-post': {
+      bg: useColorModeValue(mainBgColor, null),
+      borderRadius: 'lg',
+      borderColor: 'divider_dark',
+    },
+    '.swagger-ui .opblock.opblock-get .opblock-summary-method': {
+      bg: useColorModeValue('bronzeAlpha.100', null),
+      color: useColorModeValue('bronze.900', null),
+      px: 2,
+      py: 0,
+      minWidth: 'fit-content',
+      borderRadius: 'sm',
+    },
+    '.swagger-ui .opblock.opblock-post .opblock-summary-method': {
+      bg: useColorModeValue('bronzeAlpha.100', null),
+      color: useColorModeValue('bronze.900', null),
+      px: 2,
+      py: 0,
+      minWidth: 'fit-content',
+      borderRadius: 'sm',
+    },
+    '.swagger-ui .opblock .opblock-summary': {
+      p: 4,
+    },
+    '.swagger-ui .opblock.is-open .opblock-summary': {
+      borderColor: 'divider',
+    },
+    '.swagger-ui .opblock .opblock-section-header': {
+      bg: useColorModeValue('bronzeAlpha.50', null),
+    },
+    '.swagger-ui .opblock-control-arrow svg': {
+      fill: useColorModeValue('bronze.900', null),
+    },
+    '.swagger-ui .opblock.opblock-get .tab-header .tab-item.active h4 span::after': {
+      display: 'none',
+    },
+    '.swagger-ui .btn.try-out__btn': {
+      borderRadius: '2xl',
+      py: 2,
+      bg: useColorModeValue('lime.700', null),
+      borderColor: useColorModeValue('bronze.900', null),
+      color: useColorModeValue('bronze.900', null),
+    },
+    '.swagger-ui .parameters-col_description input': {
+      bg: useColorModeValue('bronzeAlpha.100', null),
+      color: useColorModeValue('bronze.900', null),
+      borderRadius: 'sm',
+    },
+    '.swagger-ui .opblock-body pre.microlight': {
+      bg: useColorModeValue('black !important', null),
+      borderRadius: 'md',
+    },
+    '.swagger-ui .opblock .opblock-summary .view-line-link.copy-to-clipboard': {
+      bg: useColorModeValue('bronze.900', null),
     },
   };
 

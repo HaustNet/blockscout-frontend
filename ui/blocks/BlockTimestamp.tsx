@@ -1,4 +1,4 @@
-import { Skeleton, chakra } from '@chakra-ui/react';
+import { Skeleton, chakra, useColorModeValue } from '@chakra-ui/react';
 import React from 'react';
 
 import useTimeAgoIncrement from 'lib/hooks/useTimeAgoIncrement';
@@ -12,9 +12,10 @@ interface Props {
 
 const BlockTimestamp = ({ ts, isEnabled, isLoading, className }: Props) => {
   const timeAgo = useTimeAgoIncrement(ts, isEnabled);
+  const color = useColorModeValue('bronze.900', 'text_secondary');
 
   return (
-    <Skeleton isLoaded={ !isLoading } color="text_secondary" fontWeight={ 400 } className={ className } display="inline-block">
+    <Skeleton isLoaded={ !isLoading } color={ color } fontWeight={ 400 } className={ className } display="inline-block">
       <span>{ timeAgo }</span>
     </Skeleton>
   );

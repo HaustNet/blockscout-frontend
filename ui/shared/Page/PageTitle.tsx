@@ -1,4 +1,4 @@
-import { Heading, Flex, Tooltip, Link, chakra, Skeleton, useDisclosure } from '@chakra-ui/react';
+import { Heading, Flex, Tooltip, Link, chakra, Skeleton, useDisclosure, useColorModeValue } from '@chakra-ui/react';
 import _debounce from 'lodash/debounce';
 import React from 'react';
 
@@ -115,6 +115,8 @@ const PageTitle = ({ title, contentAfter, withTextAd, backLink, className, isLoa
               isDisabled={ !isTextTruncated }
             >
               <Heading
+                color={ useColorModeValue('bronze.900', 'unset') }
+                fontWeight={ 700 }
                 ref={ headingRef }
                 as="h1"
                 size="lg"

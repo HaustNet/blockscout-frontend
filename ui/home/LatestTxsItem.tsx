@@ -68,7 +68,7 @@ const LatestTxsItem = ({ tx, isLoading }: Props) => {
             { tx.timestamp && (
               <Skeleton
                 isLoaded={ !isLoading }
-                color="text_secondary"
+                color="text"
                 fontWeight="400"
                 fontSize="sm"
                 flexShrink={ 0 }

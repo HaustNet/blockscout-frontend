@@ -10,7 +10,7 @@ import TopBarStats from './TopBarStats';
 const feature = config.features.swapButton;
 
 const TopBar = () => {
-  const bgColor = useColorModeValue('gray.50', 'whiteAlpha.100');
+  const bgColor = useColorModeValue('lime.50', 'whiteAlpha.100');
 
   return (
     <Flex

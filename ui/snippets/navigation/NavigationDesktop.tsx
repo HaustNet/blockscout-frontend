@@ -39,9 +39,9 @@ const NavigationDesktop = () => {
   }, [ isCollapsed ]);
 
   const chevronIconStyles = {
-    bgColor: useColorModeValue('white', 'black'),
-    color: useColorModeValue('blackAlpha.400', 'whiteAlpha.400'),
-    borderColor: 'divider',
+    bgColor: useColorModeValue('lime.100', 'black'),
+    color: useColorModeValue('bronzeAlpha.250', 'whiteAlpha.400'),
+    borderColor: 'bronzeAlpha.100',
   };
 
   const isExpanded = isCollapsed === false;
@@ -53,7 +53,7 @@ const NavigationDesktop = () => {
       flexDirection="column"
       alignItems="stretch"
       borderRight="1px solid"
-      borderColor="divider"
+      borderColor="bronzeAlpha.100"
       px={{ lg: isExpanded ? 6 : 4, xl: isCollapsed ? 4 : 6 }}
       py={ 12 }
       width={{ lg: isExpanded ? '229px' : '92px', xl: isCollapsed ? '92px' : '229px' }}

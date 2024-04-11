@@ -79,6 +79,10 @@ const Icon = (props: IconProps) => {
             { ...props }
             name="contract"
             borderRadius={ 0 }
+            color="bronze.900"
+            _dark={{
+              color: 'unset',
+            }}
           />
         </span>
       </Tooltip>
@@ -132,6 +136,10 @@ const Copy = (props: CopyProps) => {
   return (
     <EntityBase.Copy
       { ...props }
+      color="bronze.900"
+      _dark={{
+        color: 'unset',
+      }}
       text={ props.address.hash }
     />
   );
@@ -159,10 +167,21 @@ const AddressEntry = (props: EntityProps) => {
       onMouseEnter={ context?.onMouseEnter }
       onMouseLeave={ context?.onMouseLeave }
       position="relative"
+      color="bronze.900"
+      _dark={{
+        color: 'unset',
+      }}
     >
       <Icon { ...partsProps } color={ props.iconColor }/>
       <Link { ...linkProps }>
-        <Content { ...partsProps }/>
+        <Content
+          { ...partsProps }
+          color="bronze.900"
+          fontWeight={ 500 }
+          _dark={{
+            color: 'unset',
+          }}
+        />
       </Link>
       <Copy { ...partsProps }/>
     </Container>

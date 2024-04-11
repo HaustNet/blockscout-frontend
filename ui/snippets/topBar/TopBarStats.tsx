@@ -66,10 +66,10 @@ const TopBarStats = () => {
       { data?.coin_price && config.features.gasTracker.isEnabled && <TextSeparator color="divider"/> }
       { data?.gas_prices && data.gas_prices.average !== null && config.features.gasTracker.isEnabled && (
         <Skeleton isLoaded={ !isPlaceholderData }>
-          <chakra.span color="text_secondary">Gas </chakra.span>
+          <chakra.span color="black" _dark={{ color: 'text_secondary' }}>Gas </chakra.span>
           <GasInfoTooltip data={ data } dataUpdatedAt={ dataUpdatedAt } >
             <Link>
-              <GasPrice data={ data.gas_prices.average }/>
+              <GasPrice color="bronze.900" data={ data.gas_prices.average } _dark={{ color: 'text_secondary' }}/>
             </Link>
           </GasInfoTooltip>
         </Skeleton>

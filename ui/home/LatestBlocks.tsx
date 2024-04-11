@@ -1,4 +1,4 @@
-import { Box, Heading, Flex, Text, VStack, Skeleton } from '@chakra-ui/react';
+import { Box, Heading, Flex, Text, VStack, Skeleton, useColorModeValue } from '@chakra-ui/react';
 import { useQueryClient } from '@tanstack/react-query';
 import { AnimatePresence } from 'framer-motion';
 import React from 'react';
@@ -72,6 +72,8 @@ const LatestBlocks = () => {
     content = <Text>No data. Please reload page.</Text>;
   }
 
+  const color = useColorModeValue('bronze.900', 'white');
+
   if (data) {
     const dataToShow = data.slice(0, blocksMaxCount);
 
@@ -79,10 +81,10 @@ const LatestBlocks = () => {
       <>
         { statsQueryResult.data?.network_utilization_percentage !== undefined && (
           <Skeleton isLoaded={ !statsQueryResult.isPlaceholderData } mb={{ base: 6, lg: 3 }} display="inline-block">
-            <Text as="span" fontSize="sm">
+            <Text as="span" fontSize="sm" fontWeight={ 500 }>
               Network utilization:{ nbsp }
             </Text>
-            <Text as="span" fontSize="sm" color="blue.400" fontWeight={ 700 }>
+            <Text as="span" fontSize="sm" fontWeight={ 500 }>
               { statsQueryResult.data?.network_utilization_percentage.toFixed(2) }%
             </Text>
           </Skeleton>
@@ -107,7 +109,7 @@ const LatestBlocks = () => {
 
   return (
     <Box width={{ base: '100%', lg: '280px' }} flexShrink={ 0 }>
-      <Heading as="h4" size="sm" mb={ 4 }>Latest blocks</Heading>
+      <Heading as="h4" size="sm" mb={ 4 } color={ color } fontSize="2xl" fontWeight="700">Latest blocks</Heading>
       { content }
     </Box>
   );

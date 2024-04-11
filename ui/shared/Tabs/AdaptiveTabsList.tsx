@@ -1,5 +1,5 @@
 import type { StyleProps, ThemingProps } from '@chakra-ui/react';
-import { Box, Tab, TabList, useColorModeValue } from '@chakra-ui/react';
+import { Box, Tab, TabList } from '@chakra-ui/react';
 import React from 'react';
 
 import { useScrollDirection } from 'lib/contexts/scrollDirection';
@@ -29,7 +29,6 @@ interface Props extends TabsProps {
 const AdaptiveTabsList = (props: Props) => {
 
   const scrollDirection = useScrollDirection();
-  const listBgColor = useColorModeValue('white', 'black');
   const isMobile = useIsMobile();
 
   const tabsList = React.useMemo(() => {
@@ -59,7 +58,10 @@ const AdaptiveTabsList = (props: Props) => {
         '-ms-overflow-style': 'none', /* IE and Edge */
         'scrollbar-width': 'none', /* Firefox */
       }}
-      bgColor={ listBgColor }
+      bgColor="lime.100"
+      _dark={{
+        bgColor: 'black',
+      }}
       transitionProperty="top,box-shadow,background-color,color"
       transitionDuration="normal"
       transitionTimingFunction="ease"
@@ -102,6 +104,7 @@ const AdaptiveTabsList = (props: Props) => {
 
         return (
           <Tab
+            bg="transparent"
             key={ tab.id }
             ref={ tabsRefs[index] }
             { ...(index < tabsCut ? {} : hiddenItemStyles) }
@@ -111,6 +114,19 @@ const AdaptiveTabsList = (props: Props) => {
               '&:hover span': {
                 color: 'inherit',
               },
+            }}
+            color="link"
+            _dark={{
+              bg: 'unset',
+            }}
+            _selected={{
+              _dark: {
+                bg: 'unset',
+                borderColor: 'unset',
+              },
+              bg: 'lime.700',
+              border: '1px solid',
+              borderColor: 'bronze.900',
             }}
           >
             { typeof tab.title === 'function' ? tab.title() : tab.title }

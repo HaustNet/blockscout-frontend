@@ -8,6 +8,7 @@ import {
   PopoverContent,
   PopoverBody,
   VStack,
+  useColorModeValue,
 } from '@chakra-ui/react';
 import React from 'react';
 
@@ -27,6 +28,7 @@ type Props = {
 const NavLinkGroupDesktop = ({ item, isCollapsed }: Props) => {
   const isExpanded = isCollapsed === false;
 
+  const color = useColorModeValue('bronze.900', 'inherit');
   const styleProps = useNavLinkStyleProps({ isCollapsed, isExpanded, isActive: item.isActive });
 
   return (
@@ -39,11 +41,16 @@ const NavLinkGroupDesktop = ({ item, isCollapsed }: Props) => {
         <PopoverTrigger>
           <Link
             { ...styleProps.itemProps }
+            color={ color }
+            fontWeight={ 500 }
             w={{ lg: isExpanded ? '180px' : '60px', xl: isCollapsed ? '60px' : '180px' }}
             pl={{ lg: isExpanded ? 3 : '15px', xl: isCollapsed ? '15px' : 3 }}
             pr={{ lg: isExpanded ? 0 : '15px', xl: isCollapsed ? '15px' : 0 }}
             aria-label={ `${ item.text } link group` }
             position="relative"
+            _hover={{ color: 'link' }}
+            _selected={{ bg: useColorModeValue('lime.700', null) }}
+            _active={{ bg: useColorModeValue('lime.700', null) }}
           >
             <HStack spacing={ 3 } overflow="hidden">
               <NavLinkIcon item={ item }/>
@@ -66,7 +73,13 @@ const NavLinkGroupDesktop = ({ item, isCollapsed }: Props) => {
             </HStack>
           </Link>
         </PopoverTrigger>
-        <PopoverContent width="252px" top={{ lg: isExpanded ? '-16px' : 0, xl: isCollapsed ? 0 : '-16px' }}>
+        <PopoverContent
+          width="252px"
+          top={{ lg: isExpanded ? '-16px' : 0, xl: isCollapsed ? 0 : '-16px' }}
+          bg={ useColorModeValue('lime.100', null) }
+          border="1px solid"
+          borderColor={ useColorModeValue('divider_dark', 'transparent') }
+        >
           <PopoverBody p={ 4 }>
             <Text variant="secondary" fontSize="sm" mb={ 2 } display={{ lg: isExpanded ? 'none' : 'block', xl: isCollapsed ? 'block' : 'none' }}>
               { item.text }
