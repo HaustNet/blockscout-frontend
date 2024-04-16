@@ -162,11 +162,13 @@ const Content = chakra(({ className, isLoading, asProp, text, truncation = 'dyna
 export type CopyBaseProps = Pick<CopyToClipboardProps, 'isLoading' | 'text'> & Pick<EntityBaseProps, 'noCopy'>;
 
 const Copy = (props: CopyBaseProps) => {
+  const color = useColorModeValue('bronze.900', 'unset');
+
   if (props.noCopy) {
     return null;
   }
 
-  return <CopyToClipboard { ...props }/>;
+  return <CopyToClipboard { ...props } color={ color }/>;
 };
 
 export {

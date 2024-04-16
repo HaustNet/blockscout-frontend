@@ -49,8 +49,8 @@ const NavLinkGroupDesktop = ({ item, isCollapsed }: Props) => {
             aria-label={ `${ item.text } link group` }
             position="relative"
             _hover={{ color: 'link' }}
-            _selected={{ bg: useColorModeValue('lime.700', null) }}
-            _active={{ bg: useColorModeValue('lime.700', null) }}
+            _selected={{ bgColor: useColorModeValue('lime.700', 'unset') }}
+            _active={{ bgColor: useColorModeValue('lime.700', 'unset') }}
           >
             <HStack spacing={ 3 } overflow="hidden">
               <NavLinkIcon item={ item }/>
@@ -76,7 +76,7 @@ const NavLinkGroupDesktop = ({ item, isCollapsed }: Props) => {
         <PopoverContent
           width="252px"
           top={{ lg: isExpanded ? '-16px' : 0, xl: isCollapsed ? 0 : '-16px' }}
-          bg={ useColorModeValue('lime.100', null) }
+          bg={ useColorModeValue('lime.100', 'unset') }
           border="1px solid"
           borderColor={ useColorModeValue('divider_dark', 'transparent') }
         >

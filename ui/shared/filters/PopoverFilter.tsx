@@ -42,7 +42,7 @@ const PopoverFilter = ({ appliedFiltersNum, children, contentProps, isActive, is
           border="1px solid"
           borderColor="divider_dark"
           borderRadius="lg"
-          bg={ useColorModeValue('lime.100', null) }
+          bgColor={ useColorModeValue('lime.100', 'unset') }
         >
           { children }
         </PopoverBody>

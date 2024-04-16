@@ -1,4 +1,4 @@
-import { Tr, Td, Flex, Box, Tooltip, Skeleton } from '@chakra-ui/react';
+import { Tr, Td, Flex, Box, Tooltip, Skeleton, useColorModeValue } from '@chakra-ui/react';
 import BigNumber from 'bignumber.js';
 import { motion } from 'framer-motion';
 import React from 'react';
@@ -31,6 +31,7 @@ const BlocksTableItem = ({ data, isLoading, enableTimeIncrement }: Props) => {
   const totalReward = getBlockTotalReward(data);
   const burntFees = BigNumber(data.burnt_fees || 0);
   const txFees = BigNumber(data.tx_fees || 0);
+  const color = useColorModeValue('gray.200', 'gray.700');
 
   return (
     <Tr
@@ -110,7 +111,8 @@ const BlocksTableItem = ({ data, isLoading, enableTimeIncrement }: Props) => {
             </Tooltip>
             { data.gas_target_percentage && (
               <>
-                <TextSeparator color="gray.200" mx={ 1 } _dark={{ color: 'gray.700' }}/>
+                <TextSeparator color={ color } mx={ 1 }/>
+                { /* <TextSeparator color={useColorModeValue('gray.200', 'gray.700')} mx={ 1 } /> */ }
                 <GasUsedToTargetRatio value={ data.gas_target_percentage } isLoading={ isLoading }/>
               </>
             ) }

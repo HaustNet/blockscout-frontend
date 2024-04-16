@@ -1,5 +1,5 @@
 import type { As } from '@chakra-ui/react';
-import { Box, Flex, Skeleton, Tooltip, chakra, VStack } from '@chakra-ui/react';
+import { Box, Flex, Skeleton, Tooltip, chakra, VStack, useColorModeValue } from '@chakra-ui/react';
 import _omit from 'lodash/omit';
 import React from 'react';
 
@@ -34,10 +34,11 @@ type IconProps = Omit<EntityBase.IconBaseProps, 'name'> & Pick<EntityProps, 'add
 };
 
 const Icon = (props: IconProps) => {
+  const color = useColorModeValue('bronze.900', 'unset');
+
   if (props.noIcon) {
     return null;
   }
-
   const styles = {
     ...getIconProps(props.iconSize),
     marginRight: 2,
@@ -79,10 +80,7 @@ const Icon = (props: IconProps) => {
             { ...props }
             name="contract"
             borderRadius={ 0 }
-            color="bronze.900"
-            _dark={{
-              color: 'unset',
-            }}
+            color={ color }
           />
         </span>
       </Tooltip>
@@ -136,10 +134,6 @@ const Copy = (props: CopyProps) => {
   return (
     <EntityBase.Copy
       { ...props }
-      color="bronze.900"
-      _dark={{
-        color: 'unset',
-      }}
       text={ props.address.hash }
     />
   );

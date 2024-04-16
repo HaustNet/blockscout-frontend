@@ -50,9 +50,9 @@ const SwaggerUI = () => {
     '.swagger-ui input': {
       color: 'blackAlpha.800',
     },
-    '.swagger-ui .opblock .opblock-section-header': {
-      background: useColorModeValue('whiteAlpha.800', 'blackAlpha.800'),
-    },
+    // '.swagger-ui .opblock .opblock-section-header': {
+    //   background: useColorModeValue('whiteAlpha.800', 'blackAlpha.800'),
+    // },
     '.swagger-ui .response-col_description__inner p, .swagger-ui .parameters-col_description p': {
       margin: 0,
     },
@@ -62,11 +62,11 @@ const SwaggerUI = () => {
     '.swagger-ui .prop-type': {
       color: useColorModeValue('blue.600', 'blue.400'),
     },
-    '.swagger-ui .btn.try-out__btn': {
-      borderColor: useToken('colors', 'link'),
-      color: useToken('colors', 'link'),
-      borderRadius: 'sm',
-    },
+    // '.swagger-ui .btn.try-out__btn': {
+    //   borderColor: useToken('colors', 'link'),
+    //   color: useToken('colors', 'link'),
+    //   borderRadius: 'sm',
+    // },
     '.swagger-ui .btn.try-out__btn:hover': {
       boxShadow: 'none',
       borderColor: useToken('colors', 'link_hovered'),
@@ -111,30 +111,44 @@ const SwaggerUI = () => {
     },
     // CUSTOM
     '.swagger-ui .opblock.opblock-get': {
-      bg: useColorModeValue(mainBgColor, null),
+      bg: 'lime.100',
       borderRadius: 'lg',
       borderColor: 'divider_dark',
+      _dark: {
+        bg: 'unset',
+      },
     },
     '.swagger-ui .opblock.opblock-post': {
-      bg: useColorModeValue(mainBgColor, null),
+      bg: 'lime.100',
       borderRadius: 'lg',
       borderColor: 'divider_dark',
+      _dark: {
+        bg: 'unset',
+      },
     },
     '.swagger-ui .opblock.opblock-get .opblock-summary-method': {
-      bg: useColorModeValue('bronzeAlpha.100', null),
-      color: useColorModeValue('bronze.900', null),
+      bg: 'bronzeAlpha.100',
+      color: 'bronze.900',
       px: 2,
       py: 0,
       minWidth: 'fit-content',
       borderRadius: 'sm',
+      _dark: {
+        bg: 'unset',
+        color: 'unset',
+      },
     },
     '.swagger-ui .opblock.opblock-post .opblock-summary-method': {
-      bg: useColorModeValue('bronzeAlpha.100', null),
-      color: useColorModeValue('bronze.900', null),
+      bg: 'bronzeAlpha.100',
+      color: 'bronze.900',
       px: 2,
       py: 0,
       minWidth: 'fit-content',
       borderRadius: 'sm',
+      _dark: {
+        bg: 'unset',
+        color: 'unset',
+      },
     },
     '.swagger-ui .opblock .opblock-summary': {
       p: 4,
@@ -143,10 +157,16 @@ const SwaggerUI = () => {
       borderColor: 'divider',
     },
     '.swagger-ui .opblock .opblock-section-header': {
-      bg: useColorModeValue('bronzeAlpha.50', null),
+      bg: 'bronzeAlpha.50',
+      _dark: {
+        bg: 'unset',
+      },
     },
     '.swagger-ui .opblock-control-arrow svg': {
-      fill: useColorModeValue('bronze.900', null),
+      fill: 'bronze.900',
+      _dark: {
+        fill: 'unset',
+      },
     },
     '.swagger-ui .opblock.opblock-get .tab-header .tab-item.active h4 span::after': {
       display: 'none',
@@ -154,21 +174,34 @@ const SwaggerUI = () => {
     '.swagger-ui .btn.try-out__btn': {
       borderRadius: '2xl',
       py: 2,
-      bg: useColorModeValue('lime.700', null),
-      borderColor: useColorModeValue('bronze.900', null),
-      color: useColorModeValue('bronze.900', null),
+      bg: 'lime.700',
+      borderColor: 'bronze.900',
+      color: 'bronze.900',
+      dark_: {
+        bg: 'red',
+        borderColor: 'red',
+        color: 'red',
+      },
     },
     '.swagger-ui .parameters-col_description input': {
-      bg: useColorModeValue('bronzeAlpha.100', null),
-      color: useColorModeValue('bronze.900', null),
+      bg: 'bronzeAlpha.100',
+      color: 'bronze.900',
       borderRadius: 'sm',
+      _dark: {
+        bg: 'unset',
+        color: 'unset',
+      },
     },
     '.swagger-ui .opblock-body pre.microlight': {
-      bg: useColorModeValue('black !important', null),
+      bg: 'black !important',
       borderRadius: 'md',
+      _dark: { bg: 'unset' },
     },
     '.swagger-ui .opblock .opblock-summary .view-line-link.copy-to-clipboard': {
-      bg: useColorModeValue('bronze.900', null),
+      bg: 'bronze.900',
+      _dark: {
+        bg: 'unset',
+      },
     },
   };
 
